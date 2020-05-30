@@ -21,15 +21,27 @@ body {
           align-items: center;
 }
 
-.main-window {
+.window {
   max-width: 940px;
   width: 100%;
   height: 750px;
   border: 1px solid;
 }
 
+.left--pad {
+  padding-left: 1em;
+}
+
 .page {
   background-color: #fff;
   min-height: 100vh;
+}
+
+.main-window {
+  border: 1px solid;
+}
+
+.btns {
+  padding: 0 0.5em;
 }
 /*# sourceMappingURL=main.css.map */
