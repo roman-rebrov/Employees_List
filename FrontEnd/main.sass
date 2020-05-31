@@ -9,13 +9,21 @@ body
     display: flex
     justify-content: center
     align-items: center
+.left--pad
+    padding-left: 1em 
+    padding-top: 1em
+.grid
+    display: grid
+.choice
+    background-color: #67a4a7
+    color: white
+// -------------------
 .window
     max-width: 940px
     width: 100%
     height: 750px
     border: 1px solid
-.left--pad
-    padding-left: 1em 
+
 .page
     background-color: #fff
     min-height: 100vh
@@ -24,4 +32,78 @@ body
 
 // =======================
 .btns
+    cursor: pointer
     padding: 0 0.5em
+// ---- MODAL ---------
+.modal-wrap
+    background-color: #0000008e
+    position: fixed
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    display: none
+.modal-window
+    max-width: 940px
+    width: 100%
+    height: 590px
+    background-color: #fff
+    span
+        margin-left: 1em 
+.modal-add-edit
+    border: 1px solid
+.modal-info
+    display: flex
+.modai-info__photo
+    width: 35%
+    border: 1px solid
+.modal__photo-wrap
+    // border: 1px solid
+    cursor: pointer
+    margin: 2em
+    width: 15em
+    height: 15em
+    img
+        width: 100%
+        height: 100%
+        object-fit: contain
+.data-inputs
+    border: 1px solid red
+    height: 100%
+    input::placeholder
+        padding: 0 0.5em
+// ------------------------------------
+
+.top-panel
+    // justify-content: space-between
+    margin-top: 1em
+.columns
+    cursor: pointer
+    width: 100%
+    padding: 0 0.5em
+    background-color: #cee0e2
+    &:hover
+        background-color: #67a4a7
+        color: white
+    &+.columns
+        border-left: solid 1px
+        // border: solid
+.grid
+    display: grid
+    grid-template-columns: repeat(8, 1fr)
+.employee
+    cursor: pointer
+    border-bottom: #e2e2e2 solid 1px
+
+    &:hover
+        // background-color: #e3e9e9a6
+    div
+        display: flex
+        justify-content: center
+        align-items: center
+    div+div
+        border-left: solid 1px
+.em-picture
+    object-fit: contain
+    width: 100%
+    height: 100%

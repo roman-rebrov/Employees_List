@@ -9,19 +9,64 @@
 <body>
     <div class="page flex">
         <section class="window">
-            <span>Home</span>
+            <span>Home</span> 
             <div class="main-window">
                 <div class="search left--pad">
-                    <input type="text">
+                    <input type="text" placeholder="поиск">
                 </div>
                 <div class="tools left--pad">
                     <button class="btns add">Добавить</button>
                     <button class="btns edit">Редактировать</button>
                     <button class="btns remove">Удалить</button>
                 </div>
-                <div class="e-list"></div>
+                <div class="e-list ">
+                    <div class="list-inner">
+                        <div class="top-panel grid">
+                            <div class="columns flex">Превью</div>
+                            <div class="columns flex">Имя</div>
+                            <div class="columns flex">Фамилия</div>
+                            <div class="columns flex">Дата Рожд</div>
+                            <div class="columns flex">Возраст</div>
+                            <div class="columns flex">Должность</div>
+                            <div class="columns flex">Удаленная работа</div>
+                            <div class="columns flex">Адрес проживания</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
+<!-- MODAL ------------------- -->
+<div class="modal-wrap flex">
+    <div class="modal-window">
+        <span>
+            Добавление/Редактирование
+        </span>
+        <div class="modal-add-edit">
+            <div class="modal-info">
+                <div class="modai-info__photo flex">
+                    <div class="modal__photo-wrap">
+                        <img src="https://iso.500px.com/wp-content/uploads/2016/11/stock-photo-159533631-1500x1000.jpg" alt="">
+                    </div>
+                </div>
+                <div class="modal-info__data">
+                    <div class="data-inputs">
+                        <input type="text" placeholder="Имя">
+                        <input type="text" placeholder="Фамилия">
+                        <input type="date" placeholder="">
+                        <input type="select" placeholder="">
+                        <input type="text" placeholder="Город">
+                        <input type="text" placeholder="Улица">
+                        <input type="text" placeholder="Дом">
+                        <input type="text" placeholder="Квартира">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ------------------- -->
+<script src="./JS/employees.js"></script>
+<script src="./JS/main.js"></script>
 </body>
 </html>
