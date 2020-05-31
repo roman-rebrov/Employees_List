@@ -9,7 +9,7 @@ let employees = [
         street: 'пр. Просвещения',
         building: '',
         flat: '',
-        workType: '',
+        workType: 'checked',
         position: ''
     },
     {
@@ -22,7 +22,7 @@ let employees = [
         street: 'пр. Гражданский',
         building: '',
         flat: '',
-        workType: '',
+        workType: 'checked',
         position: ''
     },
     {

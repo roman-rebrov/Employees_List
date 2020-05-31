@@ -13,7 +13,7 @@ employees.forEach((item,i) => {
         <div class="position">
         </div>
         <div class="workType">
-            <input type="checkbox" name="" id="">
+            <input type="checkbox" ${item.workType} name="" id="">
         </div>
         <div class="adrese">${
             item.city + ',' + item.street + ',' + item.building + ',' + item.flat
@@ -24,7 +24,9 @@ employees.forEach((item,i) => {
 const employeeAll = document.querySelectorAll('.employee')
 
 employeeAll.forEach((item) => {
-    console.log(item.classList);
+    let searchWord = 'grid'
+    // let filterClass = item.classList.indexOf(searchWord)
+    // console.log(filterClass);
     
     item.addEventListener('click', () => {
         employeeAll.forEach((itemII) => {
@@ -32,15 +34,16 @@ employeeAll.forEach((item) => {
         })
         item.classList.toggle('choice')
     })
-    item.addEventListener('mouseover', () => {
-        if(item.className != 'choice'){
-            item.style.background = '#e3e9e9a6'
-        }
+    // item.addEventListener('mouseover', () => {
+    //     if(item.className != 'choice'){
+    //         item.style.background = '#e3e9e9a6'
+    //     }
         
-    })
-    item.addEventListener('mouseout', () => {
-        item.style.background = 'none'
-        // item.removeEventListener('mouseover')
+    // })
+    // item.addEventListener('mouseout', () => {
+    //     item.style.background = 'none'
+    //     // item.removeEventListener('mouseover')
 
-    })
+    // })
 })
+// -----------------------------------------------------
