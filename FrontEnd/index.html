@@ -11,8 +11,8 @@
         <section class="window">
             <span>Home</span> 
             <div class="main-window">
-                <div class="search left--pad">
-                    <input type="text" placeholder="поиск">
+                <div class="search-wrap left--pad">
+                    <input class="search" type="text" placeholder="поиск">
                 </div>
                 <div class="tools left--pad">
                     <button class="btns add">Добавить</button>
@@ -23,42 +23,51 @@
                     <div class="list-inner">
                         <div class="top-panel grid">
                             <div class="columns flex">Превью</div>
-                            <div class="columns flex">Имя</div>
-                            <div class="columns flex">Фамилия</div>
+                            <div class="sort-name columns flex">Имя</div>
+                            <div class="sort-surname columns flex">Фамилия</div>
                             <div class="columns flex">Дата Рожд</div>
                             <div class="columns flex">Возраст</div>
                             <div class="columns flex">Должность</div>
                             <div class="columns flex">Удаленная работа</div>
                             <div class="columns flex">Адрес проживания</div>
                         </div>
+                        <div class="employees-wrap"></div>
                     </div>
                 </div>
             </div>
         </section>
     </div>
-<!-- MODAL ------------------- -->
+<!-- MODAL --------------------------------------------------- -->
 <div class="modal-wrap flex">
     <div class="modal-window">
-        <span>
-            Добавление/Редактирование
-        </span>
+        <div class="modal-top-panel">
+            <span>
+                Добавление/Редактирование
+            </span>
+            <div class="modal-close flex">
+                &times
+            </div>
+        </div>
         <div class="modal-add-edit">
             <div class="modal-info">
                 <div class="modai-info__photo flex">
                     <div class="modal__photo-wrap">
-                        <img src="https://iso.500px.com/wp-content/uploads/2016/11/stock-photo-159533631-1500x1000.jpg" alt="">
+                        <img src="" alt="">
                     </div>
                 </div>
                 <div class="modal-info__data">
                     <div class="data-inputs">
-                        <input type="text" placeholder="Имя">
-                        <input type="text" placeholder="Фамилия">
-                        <input type="date" placeholder="">
-                        <input type="select" placeholder="">
-                        <input type="text" placeholder="Город">
-                        <input type="text" placeholder="Улица">
-                        <input type="text" placeholder="Дом">
-                        <input type="text" placeholder="Квартира">
+                        <form action="">
+                            <input class='inp-name' type="text" placeholder="Имя">
+                            <input type="text" placeholder="Фамилия">
+                            <input type="date" placeholder="">
+                            <input type="select" placeholder="">
+                            <input type="text" placeholder="Город">
+                            <input type="text" placeholder="Улица">
+                            <input type="text" placeholder="Дом">
+                            <input type="text" placeholder="Квартира">
+                            <button class='form-save'>Сохранить</button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -68,5 +77,6 @@
 <!-- ------------------- -->
 <script src="./JS/employees.js"></script>
 <script src="./JS/main.js"></script>
+<script src="./JS/tools.js"></script>
 </body>
 </html>

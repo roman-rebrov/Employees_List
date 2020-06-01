@@ -14,7 +14,7 @@ let employees = [
     },
     {
         id: 002,
-        name: 'Пётр',
+        name: 'Петр',
         surname: 'Петров',
         dateBorn: '27/9/1995',
         photo: 'https://specials-images.forbesimg.com/imageserve/5d3d7a55f1176b000897d627/960x0.jpg?fit=scale',
@@ -38,4 +38,70 @@ let employees = [
         workType: '',
         position: ''
     },
+    {
+        id: 004,
+        name: 'Наталья',
+        surname: 'Суслова',
+        dateBorn: '27/9/1995',
+        photo: 'https://www.unily.com/media/30012/employee-experience-reduce-turnover.jpg?width=1500&height=840&mode=crop',
+        city: 'СПб',
+        street: 'пр. Гражданский',
+        building: '',
+        flat: '',
+        workType: '',
+        position: ''
+    },
+    {
+        id: 005,
+        name: 'Алексей',
+        surname: 'Петров',
+        dateBorn: '27/9/1995',
+        photo: 'https://i.nextmedia.com.au/Utils/ImageResizer.ashx?n=https%3A%2F%2Fi.nextmedia.com.au%2FNews%2F_DSC3139a_opt.jpg&w=480&c=0&s=1',
+        city: 'СПб',
+        street: 'пр. Гражданский',
+        building: '255',
+        flat: '',
+        workType: '',
+        position: ''
+    },
+    {
+        id: 006,
+        name: 'Алексей',
+        surname: 'Терешков',
+        dateBorn: '27/9/1995',
+        photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT-Sm-Sav8EXs3x-j5Yxk55QoHcuNTayM4Q-YW1Dtuhkfma4_yF&usqp=CAU',
+        city: 'СПб',
+        street: 'пр. Гражданский',
+        building: '255',
+        flat: '',
+        workType: '',
+        position: ''
+    },
+    {
+        id: 007,
+        name: 'Александра',
+        surname: 'Терешкова',
+        dateBorn: '27/9/1995',
+        photo: 'https://erstrategies.com.au/wp-content/uploads/2019/02/bg_1-768x648.png',
+        city: 'СПб',
+        street: 'пр. Гражданский',
+        building: '255',
+        flat: '',
+        workType: '',
+        position: ''
+    },
+    {
+        id: 008,
+        name: 'Виктория',
+        surname: 'Ларина',
+        dateBorn: '27/9/1995',
+        photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTk4eCcRGCNtKmmHJLdOyOVSLRiZewPizTWkZvfV8OTIybrHCO0&usqp=CAU',
+        city: 'СПб',
+        street: 'пр. Гражданский',
+        building: '255',
+        flat: '',
+        workType: '',
+        position: ''
+    },
+    
 ]

@@ -2,7 +2,7 @@
     box-sizing: border-box
     padding: 0
     margin: 0
-
+    user-select: none
 body
     background-color: #f1f1f1
 .flex
@@ -23,6 +23,8 @@ body
     width: 100%
     height: 750px
     border: 1px solid
+    overflow-y: scroll
+    
 
 .page
     background-color: #fff
@@ -35,6 +37,18 @@ body
     cursor: pointer
     padding: 0 0.5em
 // ---- MODAL ---------
+.modal-top-panel
+    display: flex
+    align-items: center
+    justify-content: space-between
+    .modal-close
+        cursor: pointer
+        width: 3em
+        margin: 0 1em
+        font-size: 1.4em
+        &:hover
+            background-color: #a3bcc2
+            color: white
 .modal-wrap
     background-color: #0000008e
     position: fixed
@@ -106,4 +120,4 @@ body
 .em-picture
     object-fit: contain
     width: 100%
-    height: 100%
+    height: 100% 

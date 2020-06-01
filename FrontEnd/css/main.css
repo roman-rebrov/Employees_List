@@ -3,6 +3,10 @@
           box-sizing: border-box;
   padding: 0;
   margin: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 body {
@@ -41,6 +45,7 @@ body {
   width: 100%;
   height: 750px;
   border: 1px solid;
+  overflow-y: scroll;
 }
 
 .page {
@@ -55,6 +60,30 @@ body {
 .btns {
   cursor: pointer;
   padding: 0 0.5em;
+}
+
+.modal-top-panel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.modal-top-panel .modal-close {
+  cursor: pointer;
+  width: 3em;
+  margin: 0 1em;
+  font-size: 1.4em;
+}
+
+.modal-top-panel .modal-close:hover {
+  background-color: #a3bcc2;
+  color: white;
 }
 
 .modal-wrap {

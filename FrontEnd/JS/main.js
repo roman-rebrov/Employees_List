@@ -1,4 +1,7 @@
-const blockAdd = document.querySelector('.list-inner')
+const blockAdd = document.querySelector('.employees-wrap')
+const sortName = document.querySelector('.sort-name')
+const sortSurname = document.querySelector('.sort-surname')
+// const removeBtn = document.querySelector('.remove')
 
 employees.forEach((item,i) => {
     blockAdd.innerHTML += `
@@ -16,24 +19,27 @@ employees.forEach((item,i) => {
             <input type="checkbox" ${item.workType} name="" id="">
         </div>
         <div class="adrese">${
-            item.city + ',' + item.street + ',' + item.building + ',' + item.flat
+            item.city + ' ' + item.street + ' ' + item.building + ' ' + item.flat
         }</div>
     </div>
     `
 })
 const employeeAll = document.querySelectorAll('.employee')
+// let clickedEl;
 
 employeeAll.forEach((item) => {
-    let searchWord = 'grid'
-    // let filterClass = item.classList.indexOf(searchWord)
-    // console.log(filterClass);
+    // let searchWord = 'grid'
     
     item.addEventListener('click', () => {
-        employeeAll.forEach((itemII) => {
+        employeeAll.forEach((itemII) => {               // Cleaning
             if(item != itemII){itemII.classList.remove('choice')}
         })
         item.classList.toggle('choice')
     })
+
+})
+
+
     // item.addEventListener('mouseover', () => {
     //     if(item.className != 'choice'){
     //         item.style.background = '#e3e9e9a6'
@@ -45,5 +51,4 @@ employeeAll.forEach((item) => {
     //     // item.removeEventListener('mouseover')
 
     // })
-})
 // -----------------------------------------------------
