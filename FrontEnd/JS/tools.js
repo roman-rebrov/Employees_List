@@ -8,22 +8,26 @@ const search = document.querySelector('.search')
 modalClose.addEventListener('click', () => {
     modalWindow.style.display = 'none'
 })
-// 
-removeBtn.addEventListener('click', emRemove)
+// ---
+removeBtn.addEventListener('click', emRemove)       // Removing
 function emRemove() {      // Remove employees
-    employeeAll.forEach((item) => {
+    employees.forEach((item, i) => {
         // console.log(item.classList.value.indexOf("choice"));
-       if(item.classList.value.indexOf("choice") != -1){
-            item.remove()
-       }
+       if(employeeAll[i].classList.value.indexOf("choice") != -1){
+            employeeAll[i].remove()
+            employees.splice(i, 1)
+        }
+    // console.log(employees[i])
+
     })
+    console.log(employees)
     
 }
-// 
+// ---
 addBtn.addEventListener('click', () => {        // Adding
     modalWindow.style.display = 'flex'
 })
-// 
+// ---
 editBtn.addEventListener('click', () => {       // Editing
     let addDataII
     employeeAll.forEach((item, i) => {
@@ -40,17 +44,18 @@ editBtn.addEventListener('click', () => {       // Editing
     })
 })
 // ------------------------------------------------------------------------
-search.addEventListener('input', () => {
+search.addEventListener('input', () => {        // Input Event
     // let list = []
     // console.log(search.value)
-    blockAdd.innerHTML = ''
+    blockAdd.innerHTML = ''                     // Cleaning
 
-    employeeAll.forEach((item, i) => {
+    employeeAll.forEach((item, i) => {          // Add Searching
         // console.log(employees[i].name, employees[i].surname)
         // console.log(item.children[1].innerText ,item.children[2].innerText)
        let list = item.children[1].innerText + item.children[2].innerText
+       let listII = item.children[2].innerText + item.children[1].innerText
         // console.log(list, search.value);
-        if( list.toLowerCase().indexOf(search.value.toLowerCase().replace(/ /g, '')) != -1 ){
+        if( list.toLowerCase().indexOf(search.value.toLowerCase().replace(/ /g, '')) != -1 || listII.toLowerCase().indexOf(search.value.toLowerCase().replace(/ /g, '')) != -1 ){
             // console.log(item);
             blockAdd.innerHTML += `
             <div class="employee grid">
@@ -91,7 +96,7 @@ search.addEventListener('input', () => {
 // --------------------------------------------------------------------------
 // ----- SORTING ------------------------------------------------------------
 
-sortName.addEventListener('click', () => {
+sortName.addEventListener('click', () => {  // Sorting
     
     employees.sort((a,b) => {
         if(a.name > b.name) {return 1}
@@ -101,7 +106,7 @@ sortName.addEventListener('click', () => {
     blockAdd.innerHTML = ''
 
     // console.log(employees)
-    employees.forEach((item, i) => {
+    employees.forEach((item, i) => {        // 
         blockAdd.innerHTML += `
         <div class="employee grid">
             <div class="img-wrap">
@@ -110,7 +115,7 @@ sortName.addEventListener('click', () => {
             <div class="name">${employees[i].name}</div>
             <div class="surname">${employees[i].surname}</div>
             <div class="born">${employees[i].dateBorn}</div>
-            <div class="age"></div>
+            <div class="age">${employees[i].age}</div>
             <div class="position">
             </div>
             <div class="workType">
@@ -144,7 +149,7 @@ sortSurname.addEventListener('click', () => {
             <div class="name">${employees[i].name}</div>
             <div class="surname">${employees[i].surname}</div>
             <div class="born">${employees[i].dateBorn}</div>
-            <div class="age"></div>
+            <div class="age">${employees[i].age}</div>
             <div class="position">
             </div>
             <div class="workType">
@@ -158,3 +163,36 @@ sortSurname.addEventListener('click', () => {
     })
     
 } )
+
+sortAge.addEventListener('click', () => {      // Sort Age
+    employees.sort((a,b) => {
+        if(a.age > b.age) {return 1}
+        if(a.age < b.age) {return -1}
+        return 0
+    })
+    blockAdd.innerHTML = ''
+
+    // console.log(employees)
+    employees.forEach((item, i) => {
+        blockAdd.innerHTML += `
+        <div class="employee grid">
+            <div class="img-wrap">
+                <img class='em-picture' src="${employees[i].photo}" alt="">
+            </div>
+            <div class="name">${employees[i].name}</div>
+            <div class="surname">${employees[i].surname}</div>
+            <div class="born">${employees[i].dateBorn}</div>
+            <div class="age">${employees[i].age}</div>
+            <div class="position">
+            </div>
+            <div class="workType">
+                <input type="checkbox" ${employees[i].workType} name="" id="">
+            </div>
+            <div class="adrese">${
+                employees[i].city + ' ' + employees[i].street + ' ' + employees[i].building + ' ' + employees[i].flat
+            }</div>
+        </div>
+        `
+    })
+})
+// ----- SORTING END ------------------------------------------------------------
