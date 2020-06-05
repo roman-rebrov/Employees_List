@@ -2,7 +2,7 @@ let employees = [
     {
         id: 001,
         name: 'Ирина',
-        surname: 'Иванова',
+        surname: 'Сахарова',
         dateBorn: '1990',
         photo: 'https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fblogs-images.forbes.com%2Fpavelkrapivin%2Ffiles%2F2018%2F09%2FHappy-Employee-Working-Laptop-AdobeStock_171333654-by-By-Drobot-Dean-1200x801.jpg',
         city: 'СПб',
