@@ -87,11 +87,11 @@ let employees = [
         street: 'пр. Гражданский',
         building: '255',
         flat: '',
-        workType: '',
+        workType: 'checked',
         position: ''
     },
     {
-        id: 008,
+        id: 010,
         name: 'Виктория',
         surname: 'Ларина',
         dateBorn: '1995',
@@ -102,6 +102,6 @@ let employees = [
         flat: '',
         workType: '',
         position: ''
-    },
+    }
     
 ]

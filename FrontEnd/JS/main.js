@@ -19,7 +19,6 @@ function out(){
         // let ageOfEmployee = todayY - +item.dateBorn
         employeesDupl[i].age = todayY - +item.dateBorn
         // let ttt = delete employeesDupl[i]
-
         blockAdd.innerHTML += `
         <div class="employee grid">
             <div class="img-wrap">
@@ -32,7 +31,7 @@ function out(){
             <div class="position">
             </div>
             <div class="workType">
-                <input type="checkbox" ${item.workType} name="" id="">
+                <input  type="checkbox" onclick='return false' ${item.workType} name="" id="">
             </div>
             <div class="adrese">${
                 item.city + ' ' + item.street + ' ' + item.building + ' ' + item.flat
@@ -51,7 +50,6 @@ employeeAll.forEach((item, i) => {                       // // Node Elements
             if(item != itemII){itemII.classList.remove('choice')}
         })
         item.classList.toggle('choice')
-        console.log(i)
     })
 })
 }

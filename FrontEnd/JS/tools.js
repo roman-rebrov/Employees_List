@@ -5,6 +5,8 @@ const modalWindow = document.querySelector('.modal-wrap')
 const modalClose = document.querySelector('.modal-close')
 const search = document.querySelector('.search')
 const employeeAll = document.querySelectorAll('.employee')
+let btnSave = document.querySelector('.form-save')
+let inputInner = document.querySelectorAll('.input-inner')
 // -
 modalClose.addEventListener('click', () => {
     modalWindow.style.display = 'none'
@@ -23,25 +25,6 @@ function emRemove() {                                 // Remove employeesDupl
     })
     out()
 }
-// ---
-addBtn.addEventListener('click', () => {        // Adding
-    modalWindow.style.display = 'flex'
-})
-// ---
-editBtn.addEventListener('click', () => {       // Editing
-    let addDataII
-    employeeAll.forEach((item, i) => {
-        if(item.classList.value.indexOf("choice") != -1){
-            modalWindow.style.display = 'flex'
-            document.querySelector('.inp-name').value = employeesDupl[i].name
-            addDataII = employeesDupl[i].name  
-        } // else {alert('Выберите сотрудника из списка!')} 
-    })
-    document.querySelector('.form-save').addEventListener('click', () => {
-        console.log(addDataII);
-        addDataII = document.querySelector('.inp-name').value
-    })
-})
 // ------------------------------------------------------------------------
 // --------------  Searching  ---------------------------------------------
 search.addEventListener('input', () => {        // Input Event
@@ -84,6 +67,88 @@ sortAge.addEventListener('click', () => {      // Sort Age
     out()
 })
 // ----- SORTING END ------------------------------------------------------------
+// ----- ADD / EDIT -------------------------------------------------------------
+let addElementToList = false
+addBtn.addEventListener('click', () => {        // Opening Adding
+    modalWindow.style.display = 'flex'
+    addElementToList = true
+    // console.log(addElementToList)
+    // fillForm()
+})
+// -----------------------------------------
+let addDataII
+editBtn.addEventListener('click', () => {       // Opening Editing
+    // let editElementOfList ='edit'
+    addElementToList = false
+    // fillForm()
+    employeeAll.forEach((item, i) => {
+        if(item.classList.value.indexOf("choice") != -1){
+            modalWindow.style.display = 'flex'
+            // document.querySelector('.inp-name').value = employeesDupl[i].name
+            addDataII = i 
+            console.log(i)
+        } // else {alert('Выберите сотрудника из списка!')} 
+    }) 
+    fillForm()   
+})
+// -------------------
+function fillForm() {
+    let inpName = document.querySelector('.inp-name')
+    let inpSurame = document.querySelector('.inp-surname')
+    let inpDate = document.querySelector('.inp-date')
+    let inpPosition = document.querySelector('.inp-select')
+    let inpCity = document.querySelector('.inp-city')
+    let inpStreet = document.querySelector('.inp-street')
+    let inpBuilding = document.querySelector('.inp-building')
+    let inpFlat = document.querySelector('.inp-flat')
+    let inpTypeWork = document.querySelector('.inp-typeWork')
+    // -
+    if( addElementToList === true){
+        let newOdject = {}
+        newOdject.photo = ''
+        newOdject.name = inpName.value
+        newOdject.surname = inpSurame.value 
+        newOdject.dateBorn = inpDate.value
+        newOdject.city = inpCity.value
+        newOdject.street = inpStreet.value
+        newOdject.building = inpBuilding.value
+        newOdject.flat = inpFlat.value
+        newOdject.workType = inpTypeWork.value
+        // newOdject.position = inpPosition.value
+        employeesDupl.push(newOdject)
+        // console.log(employeesDupl)
+        inputInner.forEach(item => {
+            item.value = ''
+        })   
+    }else if( addElementToList === false ){
+        inpName.value = employees[addDataII].name
+        inpSurame.value = employees[addDataII].surname
+        inpDate.value = employees[addDataII].dateBorn
+        inpCity.value = employees[addDataII].city
+        inpStreet.value = employees[addDataII].street
+        inpBuilding.value = employees[addDataII].building
+        inpFlat.value = employees[addDataII].flat
+        inpTypeWork.value = employees[addDataII].workType 
+    }
+
+}
+// ---------------------------
+btnSave.addEventListener('click', function saveForm() { 
+    // console.log(item)
+    // addDataII = document.querySelector('.inp-name').value
+    fillForm()
+    saveFormII()
+})
+
+// -------------------
+function saveFormII() {
+    if (addElementToList === true){
+        modalWindow.style.display = 'none'        
+        out()
+    }    
+}
+// --------------------------------------------------------------------------------
+// --------------------------------------------------------------------------------
 
 
 // search.addEventListener('input', () => {        // Input Event
