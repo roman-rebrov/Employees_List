@@ -87,7 +87,6 @@ body
     input::placeholder
         padding: 0 0.5em
 // ------------------------------------
-
 .top-panel
     // justify-content: space-between
     margin-top: 1em
@@ -102,13 +101,16 @@ body
     &+.columns
         border-left: solid 1px
         // border: solid
+// -----------
 .grid
     display: grid
     grid-template-columns: repeat(8, 1fr)
+
 .employee
     cursor: pointer
     border-bottom: #e2e2e2 solid 1px
     position: relative
+
     &:hover
         // background-color: #e3e9e9a6
     div
@@ -121,3 +123,6 @@ body
     object-fit: contain
     width: 100%
     height: 100% 
+.moveElement
+    // background-color: #fff
+    z-index: 1000

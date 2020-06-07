@@ -20,23 +20,23 @@ function out(){
         employeesDupl[i].age = todayY - +item.dateBorn
         // let ttt = delete employeesDupl[i]
         blockAdd.innerHTML += `
-        <div class="employee grid">
-            <div class="img-wrap">
-                <img class='em-picture' src="${item.photo}" alt="">
+            <div class="employee grid">
+                <div class="img-wrap">
+                    <img class='em-picture' src="${item.photo}" alt="">
+                </div>
+                <div class="name">${item.name}</div>
+                <div class="surname">${item.surname}</div>
+                <div class="born">${item.dateBorn}</div>
+                <div class="age">${item.age}</div>
+                <div class="position">
+                </div>
+                <div class="workType">
+                    <input  type="checkbox" onclick='return false' ${item.workType} name="" id="">
+                </div>
+                <div class="adrese">${
+                    item.city + ' ' + item.street + ' ' + item.building + ' ' + item.flat
+                }</div>
             </div>
-            <div class="name">${item.name}</div>
-            <div class="surname">${item.surname}</div>
-            <div class="born">${item.dateBorn}</div>
-            <div class="age">${item.age}</div>
-            <div class="position">
-            </div>
-            <div class="workType">
-                <input  type="checkbox" onclick='return false' ${item.workType} name="" id="">
-            </div>
-            <div class="adrese">${
-                item.city + ' ' + item.street + ' ' + item.building + ' ' + item.flat
-            }</div>
-        </div>
         `
     })
     marker()
@@ -57,7 +57,9 @@ function marker(){
         })
         // 
             item.addEventListener('mousedown', mouseDown)
-            function mouseDown(eI){   
+            function mouseDown(eI){ 
+                item.classList.add('moveElement')
+
                 document.onmousemove = function mouseMove(eII) {
                     item.style.left = `${-(eI.pageX - eII.pageX)}px`             
                     item.style.top = `${-(eI.pageY - eII.pageY)}px`             
@@ -72,6 +74,7 @@ function marker(){
                 }
         }
         document.addEventListener('mouseup', function  mouseUp(){
+            item.classList.remove('moveElement')
             if( Math.abs(jeckI  - jeckII) > 250){
                 // item.remove()
                 // -

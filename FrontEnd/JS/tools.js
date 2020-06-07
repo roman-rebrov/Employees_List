@@ -10,6 +10,9 @@ let inputInner = document.querySelectorAll('.input-inner')
 // -
 modalClose.addEventListener('click', () => {
     modalWindow.style.display = 'none'
+    inputInner.forEach(item => {
+        item.value = ''
+    })  
 })
 // ---
 removeBtn.addEventListener('click', emRemove)       // Removing

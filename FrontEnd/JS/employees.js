@@ -82,7 +82,7 @@ let employees = [
         name: 'Александра',
         surname: 'Терешкова',
         dateBorn: '1995',
-        photo: 'https://erstrategies.com.au/wp-content/uploads/2019/02/bg_1-768x648.png',
+        photo: 'https://www.irishlifecorporatebusiness.ie/sites/default/files/slider/employee_2.jpg',
         city: 'СПб',
         street: 'пр. Гражданский',
         building: '255',

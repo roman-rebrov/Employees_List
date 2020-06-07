@@ -208,4 +208,8 @@ body {
   width: 100%;
   height: 100%;
 }
+
+.moveElement {
+  z-index: 1000;
+}
 /*# sourceMappingURL=main.css.map */
