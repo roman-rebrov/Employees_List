@@ -31,7 +31,7 @@ function out(){
                 <div class="position">
                 </div>
                 <div class="workType">
-                    <input  type="checkbox" onclick='return false' ${item.workType} name="" id="">
+                    <input  type="checkbox" onclick='return false'  ${item.workType} name="" id="">
                 </div>
                 <div class="adrese">${
                     item.city + ' ' + item.street + ' ' + item.building + ' ' + item.flat

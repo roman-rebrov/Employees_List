@@ -103,7 +103,7 @@ function fillForm() {
     let inpStreet = document.querySelector('.inp-street')
     let inpBuilding = document.querySelector('.inp-building')
     let inpFlat = document.querySelector('.inp-flat')
-    let inpTypeWork = document.querySelector('.inp-typeWork')
+    let inpTypeWork = document.querySelector('.inp-typeWork:checked')   
     // -
     if( addElementToList === true){
         let newOdject = {}
@@ -115,13 +115,20 @@ function fillForm() {
         newOdject.street = inpStreet.value
         newOdject.building = inpBuilding.value
         newOdject.flat = inpFlat.value
-        newOdject.workType = inpTypeWork.value
+        if(inpTypeWork === null){
+            newOdject.workType = ''
+        }else  if(inpTypeWork) {
+            newOdject.workType = 'checked'
+        }
         // newOdject.position = inpPosition.value
         employeesDupl.push(newOdject)
-        // console.log(employeesDupl)
-        inputInner.forEach(item => {
-            item.value = ''
-        })   
+        // 
+        console.log(inpTypeWork)
+        console.log(employeesDupl)
+        // 
+        // inputInner.forEach(item => {
+        //     item.value = ''
+        // })  
     }else if( addElementToList === false ){
         inpName.value = employees[addDataII].name
         inpSurame.value = employees[addDataII].surname
@@ -130,9 +137,10 @@ function fillForm() {
         inpStreet.value = employees[addDataII].street
         inpBuilding.value = employees[addDataII].building
         inpFlat.value = employees[addDataII].flat
-        inpTypeWork.value = employees[addDataII].workType 
+        inpTypeWork = employees[addDataII].workType 
+        
     }
-
+ 
 }
 // ---------------------------
 btnSave.addEventListener('click', function saveForm() { 
