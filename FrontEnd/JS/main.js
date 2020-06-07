@@ -47,8 +47,9 @@ function marker(){
     employeeAll.forEach((item, i) => {                       // // Node Elements
         let jeckI = 0
         let jeckII = 0
+        let jeckIII = 0
+        let jeckIV = 0
         item.addEventListener('click', () => {               // Function for select
-            // console.log(clientX)
             employeeAll.forEach((itemII) => {                // Cleaning
                 if(item != itemII){itemII.classList.remove('choice')}
             })
@@ -56,25 +57,38 @@ function marker(){
         })
         // 
             item.addEventListener('mousedown', mouseDown)
-            function mouseDown(eI){            
+            function mouseDown(eI){   
                 document.onmousemove = function mouseMove(eII) {
                     item.style.left = `${-(eI.pageX - eII.pageX)}px`             
-                    item.style.position = `relative`             
-                    item.style.opacity = `${ 1 - Math.abs(jeckI  - jeckII)/400 }` 
-                    jeckII = eII.pageX
+                    item.style.top = `${-(eI.pageY - eII.pageY)}px`             
+                    if ( 1 - Math.abs(jeckI  - jeckII)/400 <= 0.25 ) {
+                        item.style.opacity = `0.25` 
+                    } else {item.style.opacity = `${ 1 - Math.abs(jeckI  - jeckII)/400 }` }       
+                    
                     jeckI = eI.pageX
+                    jeckII = eII.pageX
+                    jeckIII = eI.pageY
+                    jeckIV = eII.pageY
                 }
         }
         document.addEventListener('mouseup', function  mouseUp(){
             if( Math.abs(jeckI  - jeckII) > 250){
-                item.remove()
-                
+                // item.remove()
+                // -
+                employeesDupl.splice(i, 1)
+                // console.log(employeeAll[i]); 
+                // console.log(employeesDupl); 
+                out()
+                document.removeEventListener('mouseup', mouseUp)
             }  else {
                 document.onmousemove = null
                 item.style.left = `0px` 
+                item.style.top = `0px` 
                 item.style.opacity = 1 
                 jeckI = 0
                 jeckII = 0 
+                jeckIII = 0
+                jeckIV = 0
             }         
 
         })

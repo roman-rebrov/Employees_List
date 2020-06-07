@@ -30,11 +30,6 @@ body {
   padding-top: 1em;
 }
 
-.grid {
-  display: -ms-grid;
-  display: grid;
-}
-
 .choice {
   background-color: #67a4a7;
   color: white;
@@ -188,6 +183,7 @@ body {
 .employee {
   cursor: pointer;
   border-bottom: #e2e2e2 solid 1px;
+  position: relative;
 }
 
 .employee div {
