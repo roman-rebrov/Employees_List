@@ -78,7 +78,6 @@ addBtn.addEventListener('click', () => {        // Opening Adding
 // -----------------------------------------
 let addDataII
 editBtn.addEventListener('click', () => {       // Opening Editing
-    // let editElementOfList ='edit'
     addElementToList = false
     // fillForm()
     employeeAll.forEach((item, i) => {

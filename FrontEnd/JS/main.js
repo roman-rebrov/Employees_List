@@ -43,16 +43,46 @@ function out(){
 }
 out()
 function marker(){
-const employeeAll = document.querySelectorAll('.employee')
-employeeAll.forEach((item, i) => {                       // // Node Elements
-    item.addEventListener('click', () => {               // Function for select
-        employeeAll.forEach((itemII) => {                // Cleaning
-            if(item != itemII){itemII.classList.remove('choice')}
+    const employeeAll = document.querySelectorAll('.employee')
+    employeeAll.forEach((item, i) => {                       // // Node Elements
+        let jeckI = 0
+        let jeckII = 0
+        item.addEventListener('click', () => {               // Function for select
+            // console.log(clientX)
+            employeeAll.forEach((itemII) => {                // Cleaning
+                if(item != itemII){itemII.classList.remove('choice')}
+            })
+            item.classList.toggle('choice')
         })
-        item.classList.toggle('choice')
+        // 
+            item.addEventListener('mousedown', mouseDown)
+            function mouseDown(eI){            
+                document.onmousemove = function mouseMove(eII) {
+                    item.style.left = `${-(eI.pageX - eII.pageX)}px`             
+                    item.style.position = `relative`             
+                    item.style.opacity = `${ 1 - Math.abs(jeckI  - jeckII)/400 }` 
+                    jeckII = eII.pageX
+                    jeckI = eI.pageX
+                }
+        }
+        document.addEventListener('mouseup', function  mouseUp(){
+            if( Math.abs(jeckI  - jeckII) > 250){
+                item.remove()
+                
+            }  else {
+                document.onmousemove = null
+                item.style.left = `0px` 
+                item.style.opacity = 1 
+                jeckI = 0
+                jeckII = 0 
+            }         
+
+        })
     })
-})
 }
+
+
+
 // -----------------------------------------------------
 
 
