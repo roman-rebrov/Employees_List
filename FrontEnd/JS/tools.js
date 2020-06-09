@@ -121,15 +121,7 @@ function fillForm() {
         }else  if(inpTypeWork) {
             newOdject.workType = 'checked'
         }
-        // newOdject.position = inpPosition.value
         employeesDupl.push(newOdject)
-        // 
-        // console.log(inpTypeWork)
-        // console.log(employeesDupl)
-        // 
-        // inputInner.forEach(item => {
-        //     item.value = ''
-        // })  
     }else if( addElementToList === false ){
         inpName.value = employeesDupl[addDataII].name
         inpSurame.value = employeesDupl[addDataII].surname
@@ -145,7 +137,6 @@ function fillForm() {
 }
 // ---------------------------
 btnSave.addEventListener('click', function saveForm() { 
-    // console.log(item)
     // addDataII = document.querySelector('.inp-name').value
     fillForm()
     saveFormII()
@@ -153,13 +144,11 @@ btnSave.addEventListener('click', function saveForm() {
 
 // -------------------
 function saveFormII() {
-    // if (addElementToList === true){
         modalWindow.style.display = 'none'   
         inputInner.forEach(item => {
             item.value = ''
         })      
         out()
-    // }    
 }
 // --------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------

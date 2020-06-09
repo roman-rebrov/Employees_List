@@ -42,13 +42,11 @@ function out(){
     marker()
 }
 out()
-// const employeeAll = document.querySelectorAll('.employee')
 
 function marker(){
         // ---
         // ---
     let employeeAll = document.querySelectorAll('.employee')
-    // console.log(employeeAll)
     
     employeeAll.forEach((item, i) => {                       // // Node Elements
         let jeckI = 0
@@ -69,7 +67,6 @@ function marker(){
 
                 document.onmousemove = function mouseMove(eII) {
                     item.style.left = `${-(eI.pageX - eII.pageX)}px`             
-                    // item.style.top = `${-(eI.pageY - eII.pageY)}px`             
                     if ( 1 - Math.abs(jeckI  - jeckII)/400 <= 0.25 ) {
                         item.style.opacity = `0.25` 
                     } else {item.style.opacity = `${ 1 - Math.abs(jeckI  - jeckII)/400 }` }       
@@ -87,8 +84,6 @@ function marker(){
                 // -
                 employeesDupl.splice(i, 1)
 
-                // console.log(employeeAll[i]); 
-                // console.log(employeesDupl); 
                 out()
                 document.removeEventListener('mouseup', mouseUp)
             }  else {
