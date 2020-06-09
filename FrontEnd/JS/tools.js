@@ -19,7 +19,6 @@ function emRemove() {                                 // Remove employeesDupl
     let employeeAll = document.querySelectorAll('.employee')
     employeesDupl.forEach((item, i) => {
        if(employeeAll[i].classList.value.indexOf("choice") != -1){
-            // employeeAll[i].remove()
             employeesDupl.splice(i, 1)
             console.log(employeesDupl);       
         }
