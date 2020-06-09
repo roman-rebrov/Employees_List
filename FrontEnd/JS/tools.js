@@ -4,11 +4,10 @@ const editBtn = document.querySelector('.edit')
 const modalWindow = document.querySelector('.modal-wrap')
 const modalClose = document.querySelector('.modal-close')
 const search = document.querySelector('.search')
-const employeeAll = document.querySelectorAll('.employee')
 let btnSave = document.querySelector('.form-save')
 let inputInner = document.querySelectorAll('.input-inner')
 // -
-modalClose.addEventListener('click', () => {
+modalClose.addEventListener('click', () => {        // Close
     modalWindow.style.display = 'none'
     inputInner.forEach(item => {
         item.value = ''
@@ -17,13 +16,12 @@ modalClose.addEventListener('click', () => {
 // ---
 removeBtn.addEventListener('click', emRemove)       // Removing
 function emRemove() {                                 // Remove employeesDupl
-    const employeeAll = document.querySelectorAll('.employee')
-
+    let employeeAll = document.querySelectorAll('.employee')
     employeesDupl.forEach((item, i) => {
        if(employeeAll[i].classList.value.indexOf("choice") != -1){
-            employeeAll[i].remove()
+            // employeeAll[i].remove()
             employeesDupl.splice(i, 1)
-            console.log(employeeAll[i]);       
+            console.log(employeesDupl);       
         }
     })
     out()
@@ -45,7 +43,7 @@ search.addEventListener('input', () => {        // Input Event
 })
 // --------------------------------------------------------------------------
 // ----- SORTING ------------------------------------------------------------
-sortName.addEventListener('click', () => {  // Sorting
+sortName.addEventListener('click', () => {  // Sorting Name
     employeesDupl.sort((a,b) => {
         if(a.name > b.name) {return 1}
         if(a.name < b.name) {return -1}
@@ -53,7 +51,7 @@ sortName.addEventListener('click', () => {  // Sorting
     })
     out()
 } )
-sortSurname.addEventListener('click', () => {
+sortSurname.addEventListener('click', () => {   // Sorting Surname
     employeesDupl.sort((a,b) => {
         if(a.surname > b.surname) {return 1}
         if(a.surname < b.surname) {return -1}
@@ -70,6 +68,7 @@ sortAge.addEventListener('click', () => {      // Sort Age
     out()
 })
 // ----- SORTING END ------------------------------------------------------------
+// --------------------------------------------------------------------------------------
 // ----- ADD / EDIT -------------------------------------------------------------
 let addElementToList = false
 addBtn.addEventListener('click', () => {        // Opening Adding
@@ -79,16 +78,18 @@ addBtn.addEventListener('click', () => {        // Opening Adding
     // fillForm()
 })
 // -----------------------------------------
-let addDataII
+let addDataII = 0
 editBtn.addEventListener('click', () => {       // Opening Editing
     addElementToList = false
-    // fillForm()
+    let employeeAll = document.querySelectorAll('.employee')
+    
     employeeAll.forEach((item, i) => {
         if(item.classList.value.indexOf("choice") != -1){
             modalWindow.style.display = 'flex'
             // document.querySelector('.inp-name').value = employeesDupl[i].name
             addDataII = i 
             console.log(i)
+            console.log(addDataII) 
         } // else {alert('Выберите сотрудника из списка!')} 
     }) 
     fillForm()   
@@ -123,21 +124,21 @@ function fillForm() {
         // newOdject.position = inpPosition.value
         employeesDupl.push(newOdject)
         // 
-        console.log(inpTypeWork)
-        console.log(employeesDupl)
+        // console.log(inpTypeWork)
+        // console.log(employeesDupl)
         // 
         // inputInner.forEach(item => {
         //     item.value = ''
         // })  
     }else if( addElementToList === false ){
-        inpName.value = employees[addDataII].name
-        inpSurame.value = employees[addDataII].surname
-        inpDate.value = employees[addDataII].dateBorn
-        inpCity.value = employees[addDataII].city
-        inpStreet.value = employees[addDataII].street
-        inpBuilding.value = employees[addDataII].building
-        inpFlat.value = employees[addDataII].flat
-        inpTypeWork = employees[addDataII].workType 
+        inpName.value = employeesDupl[addDataII].name
+        inpSurame.value = employeesDupl[addDataII].surname
+        inpDate.value = employeesDupl[addDataII].dateBorn
+        inpCity.value = employeesDupl[addDataII].city
+        inpStreet.value = employeesDupl[addDataII].street
+        inpBuilding.value = employeesDupl[addDataII].building
+        inpFlat.value = employeesDupl[addDataII].flat
+        inpTypeWork = employeesDupl[addDataII].workType 
         
     }
  
@@ -152,62 +153,14 @@ btnSave.addEventListener('click', function saveForm() {
 
 // -------------------
 function saveFormII() {
-    if (addElementToList === true){
-        modalWindow.style.display = 'none'        
+    // if (addElementToList === true){
+        modalWindow.style.display = 'none'   
+        inputInner.forEach(item => {
+            item.value = ''
+        })      
         out()
-    }    
+    // }    
 }
 // --------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------
-
-
-// search.addEventListener('input', () => {        // Input Event
-//     // let list = []
-//     console.log(employees)
-
-//     blockAdd.innerHTML = ''                     // Cleaning
-
-//     employeeAll.forEach((item, i) => {          // Add Searching
-//         // console.log(employees[i].name, employees[i].surname)
-//         // console.log(item.children[1].innerText ,item.children[2].innerText)
-//        let list = item.children[1].innerText + item.children[2].innerText
-//        let listII = item.children[2].innerText + item.children[1].innerText
-//         // console.log(list, search.value);
-//         if( list.toLowerCase().indexOf(search.value.toLowerCase().replace(/ /g, '')) != -1 || listII.toLowerCase().indexOf(search.value.toLowerCase().replace(/ /g, '')) != -1 ){
-//             // console.log(item);
-//             blockAdd.innerHTML += `
-//             <div class="employee grid">
-//                 <div class="img-wrap">
-//                     <img class='em-picture' src="${employees[i].photo}" alt="">
-//                 </div>
-//                 <div class="name">${employees[i].name}</div>
-//                 <div class="surname">${employees[i].surname}</div>
-//                 <div class="born">${employees[i].dateBorn}</div>
-//                 <div class="age"></div>
-//                 <div class="position">
-//                 </div>
-//                 <div class="workType">
-//                     <input type="checkbox" ${employees[i].workType} name="" id="">
-//                 </div>
-//                 <div class="adrese">${
-//                     employees[i].city + ' ' + employees[i].street + ' ' + employees[i].building + ' ' + employees[i].flat
-//                 }</div>
-//             </div>
-//             `
-//         }
-
-//     })
-//     // console.log(list, search.value);
-//     // let employeesListII = document.querySelectorAll('.employee') // ????????
-//     // employeesListII.forEach((item) => {                          // ??????
-//     //     item.addEventListener('click', () => {
-//     //         employeesListII.forEach((itemII) => {               // Cleaning
-//     //             if(item != itemII){itemII.classList.remove('choice')}
-//     //         })
-//     //         item.classList.toggle('choice')
-//     //     })
-//     // })
-//     // removeBtn.addEventListener('click', emRemove)
-//     // ------------------------------
-//     // console.log(search.value.toLowerCase().replace(/ /g, '')) 
-// })
+// --------------------------------------------------------------------------------

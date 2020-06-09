@@ -42,43 +42,51 @@ function out(){
     marker()
 }
 out()
+// const employeeAll = document.querySelectorAll('.employee')
+
 function marker(){
-    const employeeAll = document.querySelectorAll('.employee')
+        // ---
+        // ---
+    let employeeAll = document.querySelectorAll('.employee')
+    // console.log(employeeAll)
+    
     employeeAll.forEach((item, i) => {                       // // Node Elements
         let jeckI = 0
         let jeckII = 0
-        let jeckIII = 0
-        let jeckIV = 0
+        // let jeckIII = 0
+        // let jeckIV = 0
         item.addEventListener('click', () => {               // Function for select
             employeeAll.forEach((itemII) => {                // Cleaning
                 if(item != itemII){itemII.classList.remove('choice')}
             })
             item.classList.toggle('choice')
         })
-        // 
+        // ---
+        // ---
             item.addEventListener('mousedown', mouseDown)
             function mouseDown(eI){ 
                 item.classList.add('moveElement')
 
                 document.onmousemove = function mouseMove(eII) {
                     item.style.left = `${-(eI.pageX - eII.pageX)}px`             
-                    item.style.top = `${-(eI.pageY - eII.pageY)}px`             
+                    // item.style.top = `${-(eI.pageY - eII.pageY)}px`             
                     if ( 1 - Math.abs(jeckI  - jeckII)/400 <= 0.25 ) {
                         item.style.opacity = `0.25` 
                     } else {item.style.opacity = `${ 1 - Math.abs(jeckI  - jeckII)/400 }` }       
                     
                     jeckI = eI.pageX
                     jeckII = eII.pageX
-                    jeckIII = eI.pageY
-                    jeckIV = eII.pageY
+                    // jeckIII = eI.pageY
+                    // jeckIV = eII.pageY
                 }
         }
         document.addEventListener('mouseup', function  mouseUp(){
             item.classList.remove('moveElement')
-            if( Math.abs(jeckI  - jeckII) > 250){
+            if( Math.abs(jeckI  - jeckII) > 250){            // Removing Fast
                 // item.remove()
                 // -
                 employeesDupl.splice(i, 1)
+
                 // console.log(employeeAll[i]); 
                 // console.log(employeesDupl); 
                 out()
@@ -86,12 +94,12 @@ function marker(){
             }  else {
                 document.onmousemove = null
                 item.style.left = `0px` 
-                item.style.top = `0px` 
+                // item.style.top = `0px` 
                 item.style.opacity = 1 
                 jeckI = 0
                 jeckII = 0 
-                jeckIII = 0
-                jeckIV = 0
+                // jeckIII = 0
+                // jeckIV = 0
             }         
 
         })
