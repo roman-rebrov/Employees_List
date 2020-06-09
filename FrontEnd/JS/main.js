@@ -41,7 +41,7 @@ function out(){
     })
     marker()
 }
-out()
+out() 
 
 function marker(){
         // ---
@@ -57,7 +57,7 @@ function marker(){
             employeeAll.forEach((itemII) => {                // Cleaning
                 if(item != itemII){itemII.classList.remove('choice')}
             })
-            item.classList.toggle('choice')
+            item.classList.toggle('choice') 
         })
         // ---
         // ---
@@ -98,17 +98,15 @@ function marker(){
             }         
 
         })
-    })
+    })  
 }
 
 
 
 // -----------------------------------------------------
-
-
     // item.addEventListener('mouseover', () => {
     //     if(item.className != 'choice'){
-    //         item.style.background = '#e3e9e9a6'
+    //         item.style.background = '#e3e9e9a6' 
     //     }
         
     // })
