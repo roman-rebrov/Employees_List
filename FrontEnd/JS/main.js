@@ -8,7 +8,6 @@ let employeesDupl = JSON.parse(JSON.stringify(employees))
 let employeeAll;
 function allEmploees(){
     employeeAll = document.querySelectorAll('.employee')
-
 }
 // -----------------------------
 // let todayM = new Date().getUTCMonth()
@@ -52,7 +51,6 @@ out()
 function marker(){
         // ---
         // ---
-    // let employeeAll = document.querySelectorAll('.employee')
     allEmploees()
     employeeAll.forEach((item, i) => {                       // // Node Elements
         let jeckI = 0
