@@ -16,7 +16,6 @@ modalClose.addEventListener('click', () => {        // Close
 // ---
 removeBtn.addEventListener('click', emRemove)       // Removing
 function emRemove() {                                 // Remove employeesDupl
-    let employeeAll = document.querySelectorAll('.employee')
     employeesDupl.forEach((item, i) => {
        if(employeeAll[i].classList.value.indexOf("choice") != -1){
             employeesDupl.splice(i, 1)
@@ -80,7 +79,6 @@ addBtn.addEventListener('click', () => {        // Opening Adding
 let addDataII = 0
 editBtn.addEventListener('click', () => {       // Opening Editing
     addElementToList = false
-    let employeeAll = document.querySelectorAll('.employee')
     
     employeeAll.forEach((item, i) => {
         if(item.classList.value.indexOf("choice") != -1){

@@ -5,6 +5,12 @@ const sortAge = document.querySelector('.sort-age')
 let employeesDupl = JSON.parse(JSON.stringify(employees)) 
 // -----------------------------
 // -----------------------------
+let employeeAll;
+function allEmploees(){
+    employeeAll = document.querySelectorAll('.employee')
+
+}
+// -----------------------------
 // let todayM = new Date().getUTCMonth()
 let todayY = new Date().getUTCFullYear()
 const inpDate = document.querySelector('.inp-date')
@@ -46,8 +52,8 @@ out()
 function marker(){
         // ---
         // ---
-    let employeeAll = document.querySelectorAll('.employee')
-    
+    // let employeeAll = document.querySelectorAll('.employee')
+    allEmploees()
     employeeAll.forEach((item, i) => {                       // // Node Elements
         let jeckI = 0
         let jeckII = 0
