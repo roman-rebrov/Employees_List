@@ -14,14 +14,14 @@ let employees = [
     },
     {
         id: 002,
-        name: 'Петр',
-        surname: 'Петров',
-        dateBorn: '2000',
-        photo: 'https://specials-images.forbesimg.com/imageserve/5d3d7a55f1176b000897d627/960x0.jpg?fit=scale',
+        name: 'Роман',
+        surname: 'Рогов',
+        dateBorn: '1987',
+        photo: 'https://bookboonglobal.com/wp-content/uploads/sites/8/2013/08/important-employees%E2%80%99-rights.jpg',
         city: 'СПб',
-        street: 'пр. Гражданский',
-        building: '',
-        flat: '',
+        street: 'пр. Энгельса',
+        building: '2',
+        flat: '54',
         workType: 'checked',
         position: ''
     },
@@ -114,6 +114,19 @@ let employees = [
         building: '10',
         flat: '147',
         workType: '',
+        position: ''
+    },
+    {
+        id: 012,
+        name: 'Петр',
+        surname: 'Петров',
+        dateBorn: '2000',
+        photo: 'https://specials-images.forbesimg.com/imageserve/5d3d7a55f1176b000897d627/960x0.jpg?fit=scale',
+        city: 'СПб',
+        street: 'пр. Гражданский',
+        building: '',
+        flat: '',
+        workType: 'checked',
         position: ''
     }
     
