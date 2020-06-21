@@ -11,9 +11,15 @@ body
     display: flex
     justify-content: center
     align-items: center
+.flex-bet
+    display: flex
+    align-items: center
+    justify-content: space-between
 .left--pad
     padding-left: 1em 
     padding-top: 1em
+input
+    padding: 0 .2em
 // =======
 
 .choice
@@ -69,12 +75,13 @@ body
     span
         margin-left: 1em 
 .modal-add-edit
-    border: 1px solid
+    border: 1px solid #cccccc
 .modal-info
     display: flex
-.modai-info__photo
+.modal-info__photo
+    position: relative
     width: 35%
-    border: 1px solid
+    border-right: 1px solid #cccccc
 .modal__photo-wrap
     cursor: pointer
     margin: 2em
@@ -84,6 +91,28 @@ body
         width: 100%
         height: 100%
         object-fit: contain
+.modal-img-tools-block //////////
+    display: none
+    position: absolute
+    bottom: 1em
+    width: 68%
+
+.img-btn
+    cursor: pointer
+    border: .5px solid #b9b9b9
+    background-color: #dce6e491
+    // border: none
+    height: 2em
+    width: 7.7em
+    border-radius: 2px
+// 
+.add-photo-from-URL
+    position: absolute
+    width: 100%
+    display: none
+    input
+        height: 2em
+        margin-right: .5em
 .data-inputs
     margin-left: 2em
     max-width: 500px
@@ -111,6 +140,8 @@ label
     border: none
     color: #014e41
     font-size: 1.2em
+    cursor: pointer
+
 .inp-typeWork
     width: 1em
     font-size: 0.7em
@@ -122,6 +153,7 @@ label
     margin-top: 1em
 .columns
     cursor: pointer
+    position: relative
     width: 100%
     padding: 0 0.5em
     background-color: #cee0e2
@@ -131,6 +163,13 @@ label
     &+.columns
         border-left: solid 1px
         // border: solid
+.colMoving
+    cursor: col-resize
+    // border: 1px solid
+    height: 100%
+    width: 4px
+    position: absolute
+    right: 0
 // -----------
 .grid
     display: grid

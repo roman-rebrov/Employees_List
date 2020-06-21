@@ -25,9 +25,25 @@ body {
           align-items: center;
 }
 
+.flex-bet {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .left--pad {
   padding-left: 1em;
   padding-top: 1em;
+}
+
+input {
+  padding: 0 .2em;
 }
 
 .choice {
@@ -104,7 +120,7 @@ body {
 }
 
 .modal-add-edit {
-  border: 1px solid;
+  border: 1px solid #cccccc;
 }
 
 .modal-info {
@@ -113,9 +129,10 @@ body {
   display: flex;
 }
 
-.modai-info__photo {
+.modal-info__photo {
+  position: relative;
   width: 35%;
-  border: 1px solid;
+  border-right: 1px solid #cccccc;
 }
 
 .modal__photo-wrap {
@@ -130,6 +147,33 @@ body {
   height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
+}
+
+.modal-img-tools-block {
+  display: none;
+  position: absolute;
+  bottom: 1em;
+  width: 68%;
+}
+
+.img-btn {
+  cursor: pointer;
+  border: .5px solid #b9b9b9;
+  background-color: #dce6e491;
+  height: 2em;
+  width: 7.7em;
+  border-radius: 2px;
+}
+
+.add-photo-from-URL {
+  position: absolute;
+  width: 100%;
+  display: none;
+}
+
+.add-photo-from-URL input {
+  height: 2em;
+  margin-right: .5em;
 }
 
 .data-inputs {
@@ -180,6 +224,7 @@ label {
   border: none;
   color: #014e41;
   font-size: 1.2em;
+  cursor: pointer;
 }
 
 .inp-typeWork {
@@ -194,6 +239,7 @@ label {
 
 .columns {
   cursor: pointer;
+  position: relative;
   width: 100%;
   padding: 0 0.5em;
   background-color: #cee0e2;
@@ -206,6 +252,14 @@ label {
 
 .columns + .columns {
   border-left: solid 1px;
+}
+
+.colMoving {
+  cursor: col-resize;
+  height: 100%;
+  width: 4px;
+  position: absolute;
+  right: 0;
 }
 
 .grid {

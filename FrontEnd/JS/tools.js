@@ -1,25 +1,30 @@
-const removeBtn = document.querySelector('.remove')
-const addBtn = document.querySelector('.add')
-const editBtn = document.querySelector('.edit')
-const modalWindow = document.querySelector('.modal-wrap')
-const modalClose = document.querySelector('.modal-close')
-const search = document.querySelector('.search')
-let btnSave = document.querySelector('.form-save')
-let inputInner = document.querySelectorAll('.input-inner')
+const removeBtn = document.querySelector('.remove'),
+addBtn = document.querySelector('.add'),
+editBtn = document.querySelector('.edit'),
+modalWindow = document.querySelector('.modal-wrap'),
+modalClose = document.querySelector('.modal-close'),
+search = document.querySelector('.search');
+let btnSave = document.querySelector('.form-save'),
+inputInner = document.querySelectorAll('.input-inner'),
+modalPhoto = document.querySelector('.modal-photo'),
+modalBtnsAddImg = document.querySelector('.add-photo-from-URL'),
+modalBtnsEditRemoveImg = document.querySelector('.modal-img-tools-block');
 // -
 modalClose.addEventListener('click', () => {        // Close
     modalWindow.style.display = 'none'
+    modalBtnsAddImg.style.display = 'none'
+    modalBtnsEditRemoveImg.style.display = 'none'
     inputInner.forEach(item => {
         item.value = ''
     })  
+    modalPhoto.src = ""             
 })
 // ---
 removeBtn.addEventListener('click', emRemove)       // Removing
 function emRemove() {                                 // Remove employeesDupl
     employeesDupl.forEach((item, i) => {
-       if(employeeAll[i].classList.value.indexOf("choice") != -1){
-            employeesDupl.splice(i, 1)
-            console.log(employeesDupl);       
+       if( employeeAll[i].classList.value.indexOf("choice") != -1 ){
+            employeesDupl.splice( i, 1 )
         }
     })
     out()
@@ -71,41 +76,42 @@ sortAge.addEventListener('click', () => {      // Sort Age
 let addElementToList = false
 addBtn.addEventListener('click', () => {        // Opening Adding
     modalWindow.style.display = 'flex'
+    modalBtnsAddImg.style.display = 'flex'
     addElementToList = true
-    // console.log(addElementToList)
     // fillForm()
 })
 // -----------------------------------------
 let addDataII = 0
 editBtn.addEventListener('click', () => {       // Opening Editing
-    addElementToList = false
     
     employeeAll.forEach((item, i) => {
         if(item.classList.value.indexOf("choice") != -1){
             modalWindow.style.display = 'flex'
             // document.querySelector('.inp-name').value = employeesDupl[i].name
             addDataII = i 
-            console.log(i)
-            console.log(addDataII) 
+            addElementToList = false
+            fillForm()   
+            // console.log(i)
+            // console.log(addDataII) 
         } // else {alert('Выберите сотрудника из списка!')} 
     }) 
-    fillForm()   
 })
 // -------------------
 function fillForm() {
-    let inpName = document.querySelector('.inp-name')
-    let inpSurame = document.querySelector('.inp-surname')
-    let inpDate = document.querySelector('.inp-date')
-    let inpPosition = document.querySelector('.inp-select')
-    let inpCity = document.querySelector('.inp-city')
-    let inpStreet = document.querySelector('.inp-street')
-    let inpBuilding = document.querySelector('.inp-building')
-    let inpFlat = document.querySelector('.inp-flat')
-    let inpTypeWork = document.querySelector('.inp-typeWork:checked')   
+    let inpName = document.querySelector('.inp-name'),
+    inpPhoto = document.querySelector('.inp-photo'),
+    inpSurame = document.querySelector('.inp-surname'),
+    inpDate = document.querySelector('.inp-date'),
+    inpPosition = document.querySelector('.inp-select'),
+    inpCity = document.querySelector('.inp-city'),
+    inpStreet = document.querySelector('.inp-street'),
+    inpBuilding = document.querySelector('.inp-building'),
+    inpFlat = document.querySelector('.inp-flat'),
+    inpTypeWork = document.querySelector('.inp-typeWork:checked');   
     // -
     if( addElementToList === true){
         let newOdject = {}
-        newOdject.photo = ''
+        newOdject.photo = inpPhoto.value
         newOdject.name = inpName.value
         newOdject.surname = inpSurame.value 
         newOdject.dateBorn = inpDate.value
@@ -119,7 +125,15 @@ function fillForm() {
             newOdject.workType = 'checked'
         }
         employeesDupl.push(newOdject)
-    }else if( addElementToList === false ){
+        console.log(employeesDupl);
+        
+    }else if( addElementToList === false ){        
+        if ( employeesDupl[addDataII].photo ){
+            modalPhoto.src = employeesDupl[addDataII].photo
+            modalBtnsEditRemoveImg.style.display = 'flex'
+        }else {
+            modalBtnsAddImg.style.display = 'flex'
+        }
         inpName.value = employeesDupl[addDataII].name
         inpSurame.value = employeesDupl[addDataII].surname
         inpDate.value = employeesDupl[addDataII].dateBorn
@@ -141,10 +155,14 @@ btnSave.addEventListener('click', function saveForm() {
 
 // -------------------
 function saveFormII() {
-        modalWindow.style.display = 'none'   
+        modalWindow.style.display = 'none' 
+        modalBtnsAddImg.style.display = 'none'
+        modalBtnsEditRemoveImg.style.display = 'none'      
         inputInner.forEach(item => {
             item.value = ''
-        })      
+        }) 
+        // console.log(inpPhoto.src);
+        modalPhoto.src = "" 
         out()
 }
 // --------------------------------------------------------------------------------
