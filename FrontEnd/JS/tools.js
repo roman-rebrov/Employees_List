@@ -8,16 +8,19 @@ let btnSave = document.querySelector('.form-save'),
 inputInner = document.querySelectorAll('.input-inner'),
 modalPhoto = document.querySelector('.modal-photo'),
 modalBtnsAddImg = document.querySelector('.add-photo-from-URL'),
-modalBtnsEditRemoveImg = document.querySelector('.modal-img-tools-block');
-// -
+modalBtnImgWrap = document.querySelector('.modal-img-tools-block'),
+modalBtnEditRemoveImg = document.querySelector('.img__edit-remove-photo'),
+remove = false;
+// ----
 modalClose.addEventListener('click', () => {        // Close
     modalWindow.style.display = 'none'
     modalBtnsAddImg.style.display = 'none'
-    modalBtnsEditRemoveImg.style.display = 'none'
+    modalBtnImgWrap.style.display = 'none'
     inputInner.forEach(item => {
         item.value = ''
     })  
-    modalPhoto.src = ""             
+    modalPhoto.src = "" 
+    remove = false
 })
 // ---
 removeBtn.addEventListener('click', emRemove)       // Removing
@@ -109,6 +112,10 @@ function fillForm() {
     inpFlat = document.querySelector('.inp-flat'),
     inpTypeWork = document.querySelector('.inp-typeWork:checked');   
     // -
+    if ( remove === true ) {
+        employeesDupl[addDataII].photo = ''
+        remove = false
+    }
     if( addElementToList === true){
         let newOdject = {}
         newOdject.photo = inpPhoto.value
@@ -130,7 +137,7 @@ function fillForm() {
     }else if( addElementToList === false ){        
         if ( employeesDupl[addDataII].photo ){
             modalPhoto.src = employeesDupl[addDataII].photo
-            modalBtnsEditRemoveImg.style.display = 'flex'
+            modalBtnImgWrap.style.display = 'flex'
         }else {
             modalBtnsAddImg.style.display = 'flex'
         }
@@ -157,7 +164,7 @@ btnSave.addEventListener('click', function saveForm() {
 function saveFormII() {
         modalWindow.style.display = 'none' 
         modalBtnsAddImg.style.display = 'none'
-        modalBtnsEditRemoveImg.style.display = 'none'      
+        modalBtnImgWrap.style.display = 'none'      
         inputInner.forEach(item => {
             item.value = ''
         }) 
@@ -165,6 +172,16 @@ function saveFormII() {
         modalPhoto.src = "" 
         out()
 }
+// --------------------
+// ----
+modalBtnEditRemoveImg.addEventListener( 'click', () => {    // IMG remove/edit
+    modalBtnImgWrap.style.display = 'none';
+    modalBtnsAddImg.style.display = 'flex';
+    // employeesDupl[addDataII].photo = ''
+    modalPhoto.src = "" 
+    console.log(employeesDupl);
+    remove = true;
+})
 // --------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------
 // --------------------------------------------------------------------------------
