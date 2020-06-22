@@ -14,7 +14,6 @@ function allEmploees(){
 let todayY = new Date().getUTCFullYear()
 const inpDate = document.querySelector('.inp-date')
 inpDate.addEventListener('change', ()=> {
-    console.log(inpDate.value)
 })
 // -----------------------------
 // -----------------------------

@@ -10,7 +10,7 @@ modalPhoto = document.querySelector('.modal-photo'),
 modalBtnsAddImg = document.querySelector('.add-photo-from-URL'),
 modalBtnImgWrap = document.querySelector('.modal-img-tools-block'),
 modalBtnEditRemoveImg = document.querySelector('.img__edit-remove-photo'),
-remove = false;
+remove = false, saveEditionForm = false;
 // ----
 modalClose.addEventListener('click', () => {        // Close
     modalWindow.style.display = 'none'
@@ -21,6 +21,7 @@ modalClose.addEventListener('click', () => {        // Close
     })  
     modalPhoto.src = "" 
     remove = false
+    saveEditionForm = false
 })
 // ---
 removeBtn.addEventListener('click', emRemove)       // Removing
@@ -81,21 +82,20 @@ addBtn.addEventListener('click', () => {        // Opening Adding
     modalWindow.style.display = 'flex'
     modalBtnsAddImg.style.display = 'flex'
     addElementToList = true
-    // fillForm()
+    saveEditionForm = false
 })
-// -----------------------------------------
+// --------------------------------------------------------------
 let addDataII = 0
 editBtn.addEventListener('click', () => {       // Opening Editing
     
     employeeAll.forEach((item, i) => {
         if(item.classList.value.indexOf("choice") != -1){
             modalWindow.style.display = 'flex'
-            // document.querySelector('.inp-name').value = employeesDupl[i].name
             addDataII = i 
             addElementToList = false
             fillForm()   
-            // console.log(i)
-            // console.log(addDataII) 
+            saveEditionForm = true
+            addElementToList = null
         } // else {alert('Выберите сотрудника из списка!')} 
     }) 
 })
@@ -112,10 +112,6 @@ function fillForm() {
     inpFlat = document.querySelector('.inp-flat'),
     inpTypeWork = document.querySelector('.inp-typeWork:checked');   
     // -
-    if ( remove === true ) {
-        employeesDupl[addDataII].photo = ''
-        remove = false
-    }
     if( addElementToList === true){
         let newOdject = {}
         newOdject.photo = inpPhoto.value
@@ -131,13 +127,12 @@ function fillForm() {
         }else  if(inpTypeWork) {
             newOdject.workType = 'checked'
         }
-        employeesDupl.push(newOdject)
-        console.log(employeesDupl);
-        
+        employeesDupl.push(newOdject)        
     }else if( addElementToList === false ){        
         if ( employeesDupl[addDataII].photo ){
             modalPhoto.src = employeesDupl[addDataII].photo
             modalBtnImgWrap.style.display = 'flex'
+            remove = false
         }else {
             modalBtnsAddImg.style.display = 'flex'
         }
@@ -149,13 +144,25 @@ function fillForm() {
         inpBuilding.value = employeesDupl[addDataII].building
         inpFlat.value = employeesDupl[addDataII].flat
         inpTypeWork = employeesDupl[addDataII].workType 
-        
     }
- 
+    if ( saveEditionForm === true ){  
+        if ( remove === true ) {
+            employeesDupl[addDataII].photo = inpPhoto.value
+            remove = false
+        }else if( inpPhoto.value ){
+            employeesDupl[addDataII].photo = inpPhoto.value
+        }
+        employeesDupl[addDataII].name = inpName.value
+        employeesDupl[addDataII].surname = inpSurame.value 
+        employeesDupl[addDataII].dateBorn = inpDate.value
+        employeesDupl[addDataII].city = inpCity.value
+        employeesDupl[addDataII].street = inpStreet.value
+        employeesDupl[addDataII].building = inpBuilding.value
+        employeesDupl[addDataII].flat = inpFlat.value        
+    } 
 }
 // ---------------------------
 btnSave.addEventListener('click', function saveForm() { 
-    // addDataII = document.querySelector('.inp-name').value
     fillForm()
     saveFormII()
 })
@@ -168,7 +175,6 @@ function saveFormII() {
         inputInner.forEach(item => {
             item.value = ''
         }) 
-        // console.log(inpPhoto.src);
         modalPhoto.src = "" 
         out()
 }
@@ -177,9 +183,7 @@ function saveFormII() {
 modalBtnEditRemoveImg.addEventListener( 'click', () => {    // IMG remove/edit
     modalBtnImgWrap.style.display = 'none';
     modalBtnsAddImg.style.display = 'flex';
-    // employeesDupl[addDataII].photo = ''
     modalPhoto.src = "" 
-    console.log(employeesDupl);
     remove = true;
 })
 // --------------------------------------------------------------------------------
