@@ -33,6 +33,7 @@ function out(){
                 <div class="born">${item.dateBorn}</div>
                 <div class="age">${item.age}</div>
                 <div class="position">
+                    ${item.position}
                 </div>
                 <div class="workType">
                     <input  type="checkbox" onclick='return false'  ${item.workType} name="" id="">

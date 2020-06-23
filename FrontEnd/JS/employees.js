@@ -10,7 +10,7 @@ let employees = [
         building: '',
         flat: '',
         workType: 'checked',
-        position: ''
+        position: 'Бухгалтер'
     },
     {
         id: 002,
@@ -23,7 +23,7 @@ let employees = [
         building: '2',
         flat: '54',
         workType: 'checked',
-        position: ''
+        position: 'Менеджер'
     },
     {
         id: 003,
@@ -36,7 +36,7 @@ let employees = [
         building: '',
         flat: '',
         workType: '',
-        position: ''
+        position: 'IT специались'
     },
     {
         id: 004,
@@ -49,7 +49,7 @@ let employees = [
         building: '',
         flat: '',
         workType: '',
-        position: ''
+        position: 'Back-end'
     },
     {
         id: 005,
@@ -62,7 +62,7 @@ let employees = [
         building: '255',
         flat: '',
         workType: '',
-        position: ''
+        position: 'Менеджер'
     },
     {
         id: 006,
@@ -75,7 +75,7 @@ let employees = [
         building: '255',
         flat: '',
         workType: '',
-        position: ''
+        position: 'Designer'
     },
     {
         id: 007,
@@ -88,7 +88,7 @@ let employees = [
         building: '255',
         flat: '',
         workType: 'checked',
-        position: ''
+        position: 'Illustrator'
     },
     {
         id: 010,
@@ -101,7 +101,7 @@ let employees = [
         building: '255',
         flat: '',
         workType: '',
-        position: ''
+        position: 'Бухгалтер'
     },
     {
         id: 011,
@@ -114,7 +114,7 @@ let employees = [
         building: '10',
         flat: '147',
         workType: '',
-        position: ''
+        position: 'IT специались'
     },
     {
         id: 012,
@@ -127,7 +127,7 @@ let employees = [
         building: '',
         flat: '',
         workType: 'checked',
-        position: ''
+        position: 'IT специались'
     }
     
 ]

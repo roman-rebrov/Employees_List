@@ -10,7 +10,8 @@ modalPhoto = document.querySelector('.modal-photo'),
 modalBtnsAddImg = document.querySelector('.add-photo-from-URL'),
 modalBtnImgWrap = document.querySelector('.modal-img-tools-block'),
 modalBtnEditRemoveImg = document.querySelector('.img__edit-remove-photo'),
-remove = false, saveEditionForm = false;
+remove = false, saveEditionForm = false, 
+addElementToList = false, addDataII = 0;
 // ----
 modalClose.addEventListener('click', () => {        // Close
     modalWindow.style.display = 'none'
@@ -77,7 +78,6 @@ sortAge.addEventListener('click', () => {      // Sort Age
 // ----- SORTING END ------------------------------------------------------------
 // --------------------------------------------------------------------------------------
 // ----- ADD / EDIT -------------------------------------------------------------
-let addElementToList = false
 addBtn.addEventListener('click', () => {        // Opening Adding
     modalWindow.style.display = 'flex'
     modalBtnsAddImg.style.display = 'flex'
@@ -85,7 +85,7 @@ addBtn.addEventListener('click', () => {        // Opening Adding
     saveEditionForm = false
 })
 // --------------------------------------------------------------
-let addDataII = 0
+
 editBtn.addEventListener('click', () => {       // Opening Editing
     
     employeeAll.forEach((item, i) => {
@@ -122,6 +122,7 @@ function fillForm() {
         newOdject.street = inpStreet.value
         newOdject.building = inpBuilding.value
         newOdject.flat = inpFlat.value
+        newOdject.position = inpPosition.value
         if(inpTypeWork === null){
             newOdject.workType = ''
         }else  if(inpTypeWork) {
@@ -144,6 +145,7 @@ function fillForm() {
         inpBuilding.value = employeesDupl[addDataII].building
         inpFlat.value = employeesDupl[addDataII].flat
         inpTypeWork = employeesDupl[addDataII].workType 
+        inpPosition.value = employeesDupl[addDataII].position ///////
     }
     if ( saveEditionForm === true ){  
         if ( remove === true ) {
@@ -159,6 +161,7 @@ function fillForm() {
         employeesDupl[addDataII].street = inpStreet.value
         employeesDupl[addDataII].building = inpBuilding.value
         employeesDupl[addDataII].flat = inpFlat.value        
+        employeesDupl[addDataII].position = inpPosition.value      
     } 
 }
 // ---------------------------
