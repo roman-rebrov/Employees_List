@@ -12,7 +12,7 @@ modalBtnImgWrap = document.querySelector('.modal-img-tools-block'),
 modalBtnEditRemoveImg = document.querySelector('.img__edit-remove-photo'),
 remove = false, saveEditionForm = false, 
 addElementToList = false, addDataII = 0;
-// ----
+// ----------------------------------------------------------
 modalClose.addEventListener('click', () => {        // Close
     modalWindow.style.display = 'none'
     modalBtnsAddImg.style.display = 'none'
