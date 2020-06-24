@@ -10,6 +10,7 @@ modalPhoto = document.querySelector('.modal-photo'),
 modalBtnsAddImg = document.querySelector('.add-photo-from-URL'),
 modalBtnImgWrap = document.querySelector('.modal-img-tools-block'),
 modalBtnEditRemoveImg = document.querySelector('.img__edit-remove-photo'),
+inpTypeWork = document.querySelector('.inp-typeWork'),
 remove = false, saveEditionForm = false, 
 addElementToList = false, addDataII = 0;
 // ----------------------------------------------------------
@@ -20,6 +21,7 @@ modalClose.addEventListener('click', () => {        // Close
     inputInner.forEach(item => {
         item.value = ''
     })  
+    inpTypeWork.checked = false
     modalPhoto.src = "" 
     remove = false
     saveEditionForm = false
@@ -109,8 +111,8 @@ function fillForm() {
     inpCity = document.querySelector('.inp-city'),
     inpStreet = document.querySelector('.inp-street'),
     inpBuilding = document.querySelector('.inp-building'),
-    inpFlat = document.querySelector('.inp-flat'),
-    inpTypeWork = document.querySelector('.inp-typeWork:checked');   
+    inpFlat = document.querySelector('.inp-flat');
+    // inpTypeWork = document.querySelector('.inp-typeWork:checked');   
     // -
     if( addElementToList === true){
         let newOdject = {}
@@ -123,10 +125,10 @@ function fillForm() {
         newOdject.building = inpBuilding.value
         newOdject.flat = inpFlat.value
         newOdject.position = inpPosition.value
-        if(inpTypeWork === null){
+        if(inpTypeWork.checked === true){
+            newOdject.workType = 'checked' 
+        }else{
             newOdject.workType = ''
-        }else  if(inpTypeWork) {
-            newOdject.workType = 'checked'
         }
         employeesDupl.push(newOdject)        
     }else if( addElementToList === false ){        
@@ -144,15 +146,23 @@ function fillForm() {
         inpStreet.value = employeesDupl[addDataII].street
         inpBuilding.value = employeesDupl[addDataII].building
         inpFlat.value = employeesDupl[addDataII].flat
-        inpTypeWork = employeesDupl[addDataII].workType 
+        // inpTypeWork = employeesDupl[addDataII].workType 
         inpPosition.value = employeesDupl[addDataII].position ///////
+        if (employeesDupl[addDataII].workType === 'checked' ){
+            inpTypeWork.checked = true
+        }
     }
-    if ( saveEditionForm === true ){  
+    if ( saveEditionForm === true ){            // Form Edited 
         if ( remove === true ) {
             employeesDupl[addDataII].photo = inpPhoto.value
             remove = false
         }else if( inpPhoto.value ){
             employeesDupl[addDataII].photo = inpPhoto.value
+        }
+        if(inpTypeWork.checked === true){
+            employeesDupl[addDataII].workType = 'checked' 
+        }else{
+            employeesDupl[addDataII].workType = ''
         }
         employeesDupl[addDataII].name = inpName.value
         employeesDupl[addDataII].surname = inpSurame.value 
@@ -178,6 +188,7 @@ function saveFormII() {
         inputInner.forEach(item => {
             item.value = ''
         }) 
+        inpTypeWork.checked = false
         modalPhoto.src = "" 
         out()
 }
