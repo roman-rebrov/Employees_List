@@ -1,6 +1,6 @@
 class Tools extends Main{
     constructor(){
-        super() 
+        super()
         this.removeBtn = document.querySelector('.remove')
         this.addBtn = document.querySelector('.add')
         this.editBtn = document.querySelector('.edit')

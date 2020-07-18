@@ -56,7 +56,7 @@ class Main {
             let jeckII = 0
             // let jeckIII = 0
             // let jeckIV = 0
-            item.addEventListener('click', () => {               // Function for select
+            item.addEventListener('click', () => {                    // Function for select
                 this.employeeAll.forEach((itemII) => {                // Cleaning
                     if(item != itemII){itemII.classList.remove('choice')}
                 })
@@ -78,7 +78,7 @@ class Main {
         console.log(this.resolt);
         item.classList.remove('moveElement')
         // console.log(this.employeeAll[i]);
-        if( this.resolt > 250){            // Removing Fast
+        if( this.resolt > 250){                          // Removing Fast
             // item.remove()
             // console.log(this.employeesDupl);
             // -
@@ -92,18 +92,16 @@ class Main {
             // item.style.top = `0px` 
             item.style.opacity = 1 
             jeckI = 0
-            jeckII = 0 
+            jeckII = 0
             // jeckIII = 0
             // jeckIV = 0
         }         
-
     };
     mouseMove(eI,eII,item,jeckI,jeckII) {
         jeckI = eI.pageX
         jeckII = eII.pageX
         // jeckIII = eI.pageY
         // jeckIV = eII.pageY
-
         item.style.left = `${-(eI.pageX - eII.pageX)}px`             
         if ( 1 - Math.abs(jeckI  - jeckII)/400 <= 0.25 ) {
             item.style.opacity = `0.25` 
