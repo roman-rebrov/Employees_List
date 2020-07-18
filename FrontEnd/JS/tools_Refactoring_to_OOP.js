@@ -1,3 +1,8 @@
+class Tools{
+    constructor(){
+        
+    }
+}
 const removeBtn = document.querySelector('.remove'),
 addBtn = document.querySelector('.add'),
 editBtn = document.querySelector('.edit'),
